@@ -10,10 +10,9 @@ usage: sqlitegrep [-h] -d DATABASE -e EXPRESSION
 ```
 ./sqlitegrep -d corp.db -e '(password|email)'
 [*] Scanning table...messages
-[*] Scanning table...contacts
 [*] Discovered 3 matches.
 (u'password', u'messages', u'the password is [hidden]')
-(u'password', u'message', u'send me the password')
-(u'email', u'contacts', u'john@doe.me')
+(u'password', u'messages', u'send me the password')
+(u'email', u'messages', u'my email is john@doe.me')
 ```
 
