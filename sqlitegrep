@@ -12,7 +12,6 @@ def main(database,expression):
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
     tables = cursor.fetchall()
     for table in tables:
-        print "[*] Scanning table...%s" % table
         cursor.execute("SELECT * FROM %s" % table[0])
         rows = cursor.fetchall()
         for row in rows:
@@ -22,12 +21,10 @@ def main(database,expression):
                 except:
                     continue
                 for match in matches:
-                    match_list.append((match,table[0],column))
+                    match_list.append([table[0],str(column)])
 
     cursor.close()
     db.close()
-    print "[*] Discovered %d matches." % len(match_list)
- 
     for match in match_list:
         print match
 
